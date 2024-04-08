@@ -75,12 +75,12 @@ pub struct User {
 
 #[derive(Accounts)]
 pub struct CreatePost<'info> {
-    #[account(init, payer = author, space = 2000)]
+    #[account(init, payer = author, space = 1000)]
     pub post_account: Account<'info, Post>,
     #[account(mut)]
     pub author: Signer<'info>,
 
-    #[account(init, payer = author, space = 2000)]
+    #[account(init, payer = author, space = 1000)]
     pub participation_account: Account<'info, Participation>,
     pub system_program: Program<'info, System>,
 }
@@ -101,7 +101,7 @@ pub struct Post {
 
 #[derive(Accounts)]
 pub struct ParticipatePost<'info> {
-    #[account(init, payer = participant, space = 2000)]
+    #[account(init, payer = participant, space = 1000)]
     pub participation_account: Account<'info, Participation>,
     #[account(mut)]
     pub participant: Signer<'info>,

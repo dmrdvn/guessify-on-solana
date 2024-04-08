@@ -71,14 +71,12 @@ export default function LeftMenu() {
         </div>
       </NavLink>
 
-      <NavLink to="/mypredictions" className="relative block group">
+      <NavLink to="/g-bots" className="relative block group">
         <div className="inline-flex items-center  text-white transition-colors py-2 font-medium text-sm  w-full rounded-[0.375rem] group-hover:bg-[#eef3f41a]  px-1">
           <span className="flex flex-shrink-0 w-6 items-center justify-center">
             <GiMagicHat />
           </span>
-          <span className="text-[1rem] ml-3 truncate font-normal">
-            My Predictions
-          </span>
+          <span className="text-[1rem] ml-3 truncate font-normal">G-Bots</span>
         </div>
       </NavLink>
 

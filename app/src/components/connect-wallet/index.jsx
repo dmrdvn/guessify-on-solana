@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "@particle-network/connect-react-ui/dist/index.css";
 import { ConnectButton } from "@particle-network/connect-react-ui";
 
+import { createUser, getUserWallet } from "../../solanaApi";
+
 function ConnectWallet() {
+  const [wallet, setWallet] = useState("");
+
+  const fetchWalletAddress = async () => {
+    const address = await getUserWallet();
+    setWallet(address);
+    console.log(address);
+  };
+
+  const handleCreateUser = async (e) => {
+    e.preventDefault();
+    try {
+      const tx = await createUser(wallet);
+      console.log("User başarıyla oluşturuldu:", tx);
+    } catch (error) {
+      console.error("User oluşturulurken hata oluştu:", error);
+    }
+  };
+
   return (
     <div>
       <div className="flex gap-3">
-        <button className="justify-center items-center p-3 bg-[#eef3f41a] rounded-[0.375rem]">
-          <a href="https://faucet.solana.com/" target="_blank">
-            SOL Faucet
-          </a>
-        </button>
+        {/* <button onClick={handleCreateUser}>Create User</button> */}
+        {/* <button onClick={fetchWalletAddress}>Cüzdan Adresimi Göster</button> */}
 
         <div className="flex gap-2 justify-center items-center p-3 bg-[#eef3f41a] rounded-[0.375rem]">
           <ConnectButton.Custom>

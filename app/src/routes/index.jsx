@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/home";
 import Explore from "../pages/explore";
-import MyPredictions from "../pages/mypredictions";
+import GBots from "../pages/gbots";
 import Profile from "../pages/profile";
 import Events from "../pages/events";
 import MainLayout from "../layouts/main";
@@ -22,8 +22,8 @@ const routes = createBrowserRouter([
         element: <Explore />,
       },
       {
-        path: "mypredictions",
-        element: <MyPredictions />,
+        path: "g-bots",
+        element: <GBots />,
       },
       {
         path: "profile",

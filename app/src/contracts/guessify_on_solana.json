@@ -1,0 +1,181 @@
+{
+  "version": "0.1.0",
+  "name": "guessify_on_solana",
+  "instructions": [
+    {
+      "name": "createUser",
+      "accounts": [
+        {
+          "name": "userAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "userPubkey",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
+      "name": "createPost",
+      "accounts": [
+        {
+          "name": "postAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "author",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "participationAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "content",
+          "type": "string"
+        },
+        {
+          "name": "betAmount",
+          "type": "u64"
+        },
+        {
+          "name": "dueDate",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "participatePost",
+      "accounts": [
+        {
+          "name": "participationAccount",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "participant",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "post",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "Burada post hesabını ekliyoruz, böylece katılımın hangi posta yapıldığını belirleyebiliriz."
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "betAmount",
+          "type": "u64"
+        },
+        {
+          "name": "vote",
+          "type": "bool"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "User",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "userPubkey",
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Post",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "publicKey"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          },
+          {
+            "name": "betAmount",
+            "type": "u64"
+          },
+          {
+            "name": "dueDate",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Participation",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "userPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "postPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "betAmount",
+            "type": "u64"
+          },
+          {
+            "name": "vote",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "PostNotFound",
+      "msg": "The specified post does not exist."
+    }
+  ],
+  "metadata": {
+    "address": "E8izq3XUK9HGB4NQkz8n6mDvQTBoNTW3yg8Ft1XwxBuV"
+  }
+}

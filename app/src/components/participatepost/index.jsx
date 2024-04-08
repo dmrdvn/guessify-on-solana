@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { participateInPost, getUserAddress, getPost } from "../../Web3Client";
+/* import { participateInPost, getUserAddress, getPost } from "../../solanaApi"; */
 import Button from "../button";
 import { unixFormat, ethToWei, unixToDate } from "../../utils/format";
 import Loader from "../Loader";
-import { postParticipatation } from "../../utils/firebaseConfig";
 
 const SIDE = {
   LEFT: 0,
@@ -15,7 +14,7 @@ function ParticipatePost({ postData }) {
   const navigate = useNavigate();
   const [post, setPost] = useState(postData);
   const [user, setUser] = useState("");
-  const [participants, setParticipants] = useState(postData.postParticipants);
+  const [participants, setParticipants] = useState();
   const [postBet, setPostBet] = useState("");
   const [side, setSide] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -25,11 +24,10 @@ function ParticipatePost({ postData }) {
     //const weiAmount = ethToWei(postBet);
     try {
       //setLoading(true);
-      const getPostDetails = await getPost(Number(postData.id));
+      /* const getPostDetails = await getPost(Number(postData.id));
       console.log("getPostDetails", getPostDetails.toString());
-      console.log("getPostDetails", getPostDetails.postContent);
+      console.log("getPostDetails", getPostDetails.postContent); */
       /* console.log("getPostDetails", getPostDetails[1]); */
-
       /* 
       const userAddress = await getUserAddress();
       setUser(userAddress);
@@ -74,10 +72,10 @@ function ParticipatePost({ postData }) {
     fetchParticipantData();
   }, [post]); */
 
-  const performPostCompletionActions = async () => {
+  /*  const performPostCompletionActions = async () => {
     setLoading(false);
     setSubmitted(true);
-  };
+  }; */
 
   return (
     <div className="flex flex-col gap-5">

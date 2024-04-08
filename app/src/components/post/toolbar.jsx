@@ -1,9 +1,7 @@
 import React from "react";
 import { AiOutlineComment, AiOutlineShareAlt } from "react-icons/ai";
-import { FaEthereum } from "react-icons/fa";
+import { TbCurrencySolana } from "react-icons/tb";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
-
-import { formattedBet, weiToEth } from "../../utils/format";
 
 const Toolbar = ({ post }) => {
   return (
@@ -26,7 +24,9 @@ const Toolbar = ({ post }) => {
           title="Comments"
         >
           <AiOutlineComment />{" "}
-          <span className="text-[.9rem]">{post.comments.length}</span>
+          <span className="text-[.9rem]">
+            {/* {post.comments.length} */} 10
+          </span>
         </a>
         <a
           href="#"
@@ -34,7 +34,7 @@ const Toolbar = ({ post }) => {
           title="Trusted Points"
         >
           <VscWorkspaceTrusted />{" "}
-          <span className="text-[.9rem]">{post.trustCount}</span>
+          <span className="text-[.9rem]">{/* {post.trustCount} */}50</span>
         </a>
       </div>
 
@@ -43,15 +43,16 @@ const Toolbar = ({ post }) => {
         <div className="flex items-center justify-center gap-1">
           Participants:
           <span className="p-1  bg-[#eef3f41a] rounded-[0.375rem]">
-            {post.postParticipants.length}
+            {/* {post.postParticipants.length} */} 120
           </span>
         </div>
 
         <div className="flex items-center justify-center gap-1">
           <p>Bet Pool:</p>
           <span className="p-1 pr-1.5 bg-[#eef3f41a] rounded-[0.375rem] flex items-center">
-            <FaEthereum />
-            {post.postBetPool}
+            <TbCurrencySolana />
+            {/* {post.postBetPool} */}
+            1.5
           </span>
         </div>
 
@@ -61,13 +62,15 @@ const Toolbar = ({ post }) => {
             className="p-1  bg-[#eef3f41a] rounded-[0.375rem]"
             title="Calculate Method => Web3 ID + Participant Count + Trust Count + Comment Count"
           >
-            {(post.postBetPool > 0 && post.postBetPool) <= 1
+            {" "}
+            70
+            {/* {(post.postBetPool > 0 && post.postBetPool) <= 1
               ? "50"
               : (post.postBetPool > 1 && post.postBetPool) <= 5
               ? "75"
               : post.postBetPool > 5
               ? "100"
-              : "0"}
+              : "0"} */}
           </span>
         </div>
       </div>
